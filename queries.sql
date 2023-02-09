@@ -10,7 +10,7 @@ SHOW COLUMNS
 FROM DarkSoulsDB.characters
 
 
-
+-- SELECIONANDO A TABELA
 
 -- exiba todos os dados da tabela characters
 
@@ -32,12 +32,40 @@ SELECT * FROM DarkSoulsDB.characters LIMIT 3
 
 SELECT * FROM DarkSoulsDB.characters LIMIT 2 OFFSET 1
 
--- exiba os elementos da tabela em ordem alfabefica dos nomes
+-- é possivel alterar o nome da coluna com o AS
+
+SELECT name as 'nomeDosGames' FROM DarkSoulsDB.games;
+
+
+
+--ORDENANDO OS DADOS
+
+-- exiba os elementos da tabela em ordem alfabefica dos nomes (o ASC é facultativo, visto ser o valor default)
 
 SELECT * FROM DarkSoulsDB.characters
-ORDER BY name
+ORDER BY name ASC
 
 -- exiba os nomes e friendly em ordem decrescente dos nomes
 
 SELECT name, friendly FROM DarkSoulsDB.characters
 ORDER BY name DESC
+
+
+
+-- FILTRANDO OS DADOS
+
+-- exiba os characters que não possuam last_name
+
+SELECT * FROM DarkSoulsDB.characters
+WHERE last_name IS NULL;
+
+-- exiba os characters que possuam last_name
+
+SELECT * FROM DarkSoulsDB.characters
+WHERE last_name IS NOT NULL;
+
+-- é possivel fazer o filtro e a ordenação
+
+SELECT * FROM DarkSoulsDB.weapons
+WHERE damage > 250
+ORDER BY weight ASC
