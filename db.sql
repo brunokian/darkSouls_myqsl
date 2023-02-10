@@ -22,7 +22,7 @@ CREATE TABLE `DarkSoulsDB`.`weapons` (
     `id_weapon` INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(45) NOT NULL,
     `damage` INT(3),
-    `weight` FLOAT(2,1)
+    `weight` FLOAT(3,1)
 ) ENGINE = InnoDB;
 
 INSERT INTO DarkSoulsDB.games (name, release_year)

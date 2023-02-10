@@ -1,3 +1,5 @@
+-- REQUISITANDO INFOS DO DATABASE
+
 -- liste todos os bancos de dados
 SHOW DATABASES
 
@@ -10,17 +12,20 @@ SHOW COLUMNS
 FROM DarkSoulsDB.characters
 
 
+
+
 -- SELECIONANDO A TABELA
 
--- exiba todos os dados da tabela characters
+-- exiba todos os dados de uma tabela
 
 SELECT * FROM DarkSoulsDB.characters
 
--- exiba os nomes da tabela characters
+-- exiba uma coluna especifica
 
 SELECT name FROM DarkSoulsDB.characters;
 
--- exiba a quantidade de registros na coluna name da tabela characters
+-- exiba a quantidade de registros em uma coluna
+    -- note que dependendo do que voçe utilizar como base para a contagem o resultado pode variar. Caso fosse usado o "last_name" ao inves de "name", o resultado seria diferente, visto que alguns personagens não possui last name
 
 SELECT COUNT(name) FROM DarkSoulsDB.characters
 
@@ -38,6 +43,8 @@ SELECT name as 'nomeDosGames' FROM DarkSoulsDB.games;
 
 
 
+
+
 --ORDENANDO OS DADOS
 
 -- exiba os elementos da tabela em ordem alfabefica dos nomes (o ASC é facultativo, visto ser o valor default)
@@ -49,6 +56,8 @@ ORDER BY name ASC
 
 SELECT name, friendly FROM DarkSoulsDB.characters
 ORDER BY name DESC
+
+
 
 
 
@@ -69,3 +78,21 @@ WHERE last_name IS NOT NULL;
 SELECT * FROM DarkSoulsDB.weapons
 WHERE damage > 250
 ORDER BY weight ASC
+
+-- filtrando com o BETWEEN
+
+SELECT * FROM DarkSoulsDB.weapons
+WHERE damage BETWEEN 200 AND 300
+
+-- filtrando com IN
+
+SELECT * FROM DarkSoulsDB.weapons
+WHERE weight IN(8, 28, 12.5)
+
+-- filtrando com LIKE
+
+SELECT * FROM DarkSoulsDB.weapons
+WHERE weight = 8 
+OR damage > 300
+OR damage < 130
+OR name LIKE '%fume%'
